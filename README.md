@@ -94,7 +94,7 @@ Training uses about 10-15 s per step on an M4 with 16 GB, so the planned 750 ste
 ## Limitations
 
 - **Partial training.** The reported adapter is the step-250 checkpoint of a planned 750-step (one-epoch) run. Training was stopped early to save time, so the numbers are probably not the ceiling. The training log is not committed.
-- **Possible train/test leakage.** The dataset is split by sentence and the Hugging Face version has no document IDs, so sentences from the same court decision may appear on both sides. Scores may be optimistic.
+- **Possible train/test leakage.** The dataset is split by sentence and the Hugging Face version has no document IDs, so sentences from the same court decision may appear on both sides. Scores may be optimistic. Checked: 49 of the 500 test sentences also appear verbatim in the training set; re-scoring on the remaining 451 (`evaluate.py --dedup`, `results/tuned_step250_dedup.json`) gives the same F1 (0.693), so exact duplicates are not driving the result. Near-duplicates from the same decisions are not ruled out.
 - **Single run, single seed, 500 test sentences.** Differences of a few points are not meaningful.
 - **Strict scoring.** Exact text and type match; partially correct spans count as errors.
 - **Output loops.** Some invalid outputs (2.2%) are repetition loops that hit the 400-token cap.

@@ -1,0 +1,79 @@
+{
+  "model": "mlx-community/Qwen2.5-3B-Instruct-4bit",
+  "adapter": "adapters (step 250 checkpoint)",
+  "fewshot": 0,
+  "n_sentences": 451,
+  "json_valid_rate": 0.9800443458980045,
+  "micro": {
+    "precision": 0.6903914590747331,
+    "recall": 0.696588868940754,
+    "f1": 0.6934763181411975
+  },
+  "per_type": {
+    "PER": {
+      "precision": 0.7352941176470589,
+      "recall": 0.7352941176470589,
+      "f1": 0.735294117647059,
+      "support": 34
+    },
+    "ORG": {
+      "precision": 0.4727272727272727,
+      "recall": 0.5909090909090909,
+      "f1": 0.5252525252525252,
+      "support": 88
+    },
+    "LOC": {
+      "precision": 0.5,
+      "recall": 0.39473684210526316,
+      "f1": 0.4411764705882353,
+      "support": 38
+    },
+    "NRM": {
+      "precision": 0.8716577540106952,
+      "recall": 0.8907103825136612,
+      "f1": 0.8810810810810812,
+      "support": 183
+    },
+    "REG": {
+      "precision": 0.4827586206896552,
+      "recall": 0.358974358974359,
+      "f1": 0.4117647058823529,
+      "support": 39
+    },
+    "RS": {
+      "precision": 0.6896551724137931,
+      "recall": 0.6756756756756757,
+      "f1": 0.6825938566552902,
+      "support": 148
+    },
+    "LIT": {
+      "precision": 0.7037037037037037,
+      "recall": 0.7037037037037037,
+      "f1": 0.7037037037037037,
+      "support": 27
+    }
+  },
+  "mean_latency_s": 2.830760180800435,
+  "invalid_examples": [
+    {
+      "sentence": "Das Bundesverwaltungsgericht hatte vor dem Jahr 1998 die langjährige und weit verbreitete Praxis des Bundes beanstandet , Beamten auf der Grundlage von § 17 BBesG Aufwandsentschädigungen zu gewähren , durch die die physischen und psychischen Belastungen und Erschwernisse ihrer Dienstleistung abgegolten werden sollten ( BVerwG , Urteile vom 8. Juli 1994 - 2 C 3.93 - BVerwGE 96 , 224 < 225 f. > und vom 2. März 1995 - 2 C 17.94 - Buchholz 240 § 17 BBesG Nr. 7 S. 9 ) .",
+      "raw": "[{\"text\": \"§ 17 BBesG\", \"type\": \"NRM\"}, {\"text\": \"Bundesverwaltungsgericht\", \"type\": \"ORG\"}, {\"text\": \"Bund\", \"type\": \"ORG\"}, {\"text\": \"§ 17 BBesG\", \"type\": \"NRM\"}, {\"text\": \"Bundes\", \"type\": \"ORG\"}, {\"text\": \"Bundes\", \"type\": \"ORG\"}, {\"text\": \"Bundes\", \"type\": \"ORG\"}, {\"text\": \"§ 17 BBesG\", \"type\":"
+    },
+    {
+      "sentence": "Allerdings ist wegen der Nähe zur Gehörsrüge besonders darzulegen , dass der betroffene Beteiligte mit den üblichen Mitteln - insbesondere schriftlich durch seinen Prozessbevollmächtigten - alles unternommen hat , um seine Darstellung des Sachverhalts dem Gericht nahezubringen , und warum diese Möglichkeiten des Vortrags im konkreten Fall zur Sachaufklärung nicht ausreichen ( vgl BSG SozR 4 - 1500 § 160 Nr 18 RdNr 6 ; BSG vom 14. 10. 2008 - B 13 R 407/08 B - juris RdNr 17 f ) .",
+      "raw": "[{\"text\": \"B Gehörsrüge\", \"type\": \"LOC\"}, {\"text\": \"B Gehörsrüge\", \"type\": \"LOC\"}, {\"text\": \"B Gehörsrüge\", \"type\": \"LOC\"}, {\"text\": \"B Gehörsrüge\", \"type\": \"LOC\"}, {\"text\": \"B Gehörsrüge\", \"type\": \"LOC\"}, {\"text\": \"B Gehörsrüge\", \"type\": \"LOC\"}, {\"text\": \"B Gehörsrüge\", \"type\": \"LOC\"}, {\"text\": \"B "
+    },
+    {
+      "sentence": "Einer Beurteilung der weiteren abhängigen Patentansprüche bedarf es in der Folge nicht , da mit dem nicht gewährbaren Patentanspruch 1 dem Antrag als Ganzes nicht stattgegeben werden kann ( vgl. BGH GRUR 1997 , 120ff. – elektrisches Speicherheizgerät ) .",
+      "raw": "[{\"text\": \"BGH GRUR 1997 , 120ff.\", \"type\": \"RS\"}, {\"text\": \"Antrag\", \"type\": \"ORG\"}, {\"text\": \"Antrag\", \"type\": \"ORG\"}, {\"text\": \"Antrag\", \"type\": \"ORG\"}, {\"text\": \"Antrag\", \"type\": \"ORG\"}, {\"text\": \"Antrag\", \"type\": \"ORG\"}, {\"text\": \"Antrag\", \"type\": \"ORG\"}, {\"text\": \"Antrag\", \"type\": \"ORG\"}, {\"te"
+    },
+    {
+      "sentence": "Sollte die Erinnerung an die Rückgabe des Empfangsbekenntnisses als erneute Terminmitteilung zu werten sein , würde das einen Hinweis auf den Termin voraussetzen , der indes fehlt ; angegeben ist nur das Datum der Terminmitteilung selbst ( \" vom 17. 10. 2016 \" ) .",
+      "raw": "[{\"text\": \"17. 10. 2016\", \"type\": \"DATE\"}]"
+    },
+    {
+      "sentence": "Die Beschwerde des Klägers wegen Nichtzulassung der Revision gegen das Urteil des Finanzgerichts Münster vom 15. Februar 2017 13 K 4041/15 E wird als unbegründet zurückgewiesen .",
+      "raw": "[{\"text\": \"Urteil des Finanzgerichts Münster\", \"type\": \"ORG\"}, {\"text\": \"Kläger\", \"type\": \"PER\"}, {\"text\": \"Münster\", \"type\": \"LOC\"}, {\"text\": \"Urteil des Finanzgerichts Münster\", \"type\": \"ORG\"}, {\"text\": \"Kläger\", \"type\": \"PER\"}, {\"text\": \"Münster\", \"type\": \"LOC\"}, {\"text\": \"Urteil des Finanzgerich"
+    }
+  ]
+}

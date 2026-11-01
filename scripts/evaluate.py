@@ -36,6 +36,8 @@ def main():
     ap.add_argument("--limit", type=int, default=None)
     ap.add_argument("--fewshot", type=int, default=0,
                     help="prepend K training examples as chat turns (prompted baseline)")
+    ap.add_argument("--dedup", action="store_true",
+                    help="drop test sentences that also appear in the training set")
     args = ap.parse_args()
 
     model, tok = load(args.model, adapter_path=args.adapter)
@@ -44,6 +46,11 @@ def main():
     for l in (ROOT / "data" / "test.jsonl").open(encoding="utf-8"):
         m = json.loads(l)["messages"]
         rows.append({"sentence": m[1]["content"], "entities": json.loads(m[2]["content"])})
+    if args.dedup:
+        seen = set()
+        for l in (ROOT / "data" / "train.jsonl").open(encoding="utf-8"):
+            seen.add(" ".join(json.loads(l)["messages"][1]["content"].lower().split()))
+        rows = [r for r in rows if " ".join(r["sentence"].lower().split()) not in seen]
     if args.limit:
         rows = rows[: args.limit]
 
