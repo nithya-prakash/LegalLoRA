@@ -1,0 +1,5 @@
+.venv/
+adapters/
+__pycache__/
+*.log
+data/*.jsonl

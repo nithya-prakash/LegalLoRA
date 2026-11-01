@@ -1,0 +1,79 @@
+{
+  "model": "mlx-community/Qwen2.5-3B-Instruct-4bit",
+  "adapter": null,
+  "fewshot": 0,
+  "n_sentences": 500,
+  "json_valid_rate": 0.988,
+  "micro": {
+    "precision": 0.14615384615384616,
+    "recall": 0.0304,
+    "f1": 0.05033112582781457
+  },
+  "per_type": {
+    "PER": {
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "support": 45
+    },
+    "ORG": {
+      "precision": 0.22388059701492538,
+      "recall": 0.15789473684210525,
+      "f1": 0.18518518518518517,
+      "support": 95
+    },
+    "LOC": {
+      "precision": 0.2857142857142857,
+      "recall": 0.05,
+      "f1": 0.0851063829787234,
+      "support": 40
+    },
+    "NRM": {
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "support": 202
+    },
+    "REG": {
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "support": 41
+    },
+    "RS": {
+      "precision": 0.14285714285714285,
+      "recall": 0.012195121951219513,
+      "f1": 0.02247191011235955,
+      "support": 164
+    },
+    "LIT": {
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "support": 38
+    }
+  },
+  "mean_latency_s": 1.2591787393740024,
+  "invalid_examples": [
+    {
+      "sentence": "Der nationale Gesetzgeber habe eine lückenlose Ahndung des Insiderhandels erreichen wollen , wozu er auch vor dem 3. Juli 2016 durch die Richtlinie 2003 / 6 / EG des Europäischen Parlaments und des Rates vom 28. Januar 2003 über Insider-Geschäfte und Marktmanipulation ( ABl. L 96 vom 12. April 2003 , S. 16 ) verpflichtet gewesen sei .",
+      "raw": "[\n    {\n        \"text\": \"EU\",\n        \"type\": \"ORG\"\n    },\n    {\n        \"text\": \"EU\",\n        \"type\": \"ORG\"\n    },\n    {\n        \"text\": \"EU\",\n        \"type\": \"ORG\"\n    },\n    {\n        \"text\": \"EU\",\n        \"type\": \"ORG\"\n    },\n    {\n        \"text\": \"EU\",\n        \"type\": \"ORG\"\n    },\n    {\n       "
+    },
+    {
+      "sentence": "Das Landgericht hat den Angeklagten T. D. wegen schweren sexuellen Missbrauchs eines Kindes in Tateinheit mit sexuellem Missbrauch eines Schutzbefohlenen in zwei Fällen sowie schweren sexuellen Missbrauchs einer widerstandsunfähigen Person in fünf Fällen zu einer Gesamtfreiheitsstrafe von vier Jahren und drei Monaten verurteilt .",
+      "raw": "[\n    {\n        \"text\": \"Landgericht\",\n        \"type\": \"REG\"\n    },\n    {\n        \"text\": \"Tateinheit\",\n        \"type\": \"NRM\"\n    },\n    {\n        \"text\": \"T. D.\",\n        \"type\": \"PER\"\n    },\n    {\n        \"text\": \"Tate\",\n        \"type\": \"LOC\"\n    },\n    {\n        \"text\": \"Tate\",\n        \"type\": \"L"
+    },
+    {
+      "sentence": "a ) Nach §§ 62 Abs. 1 Satz 1 , 63 Abs. 1 Satz 1 Nr. 1 i. V. m. § 32 Abs. 4 Satz 1 Nr. 2 Buchst. c EStG wird ein Kind , das das 18. Lebensjahr , aber noch nicht das 25. Lebensjahr vollendet hat , kindergeldrechtlich berücksichtigt , wenn es eine Berufsausbildung mangels Ausbildungsplatzes nicht beginnen oder fortsetzen kann .",
+      "raw": "[\n    {\n        \"text\": \"Kind\",\n        \"type\": \"NRM\"\n    },\n    {\n        \"text\": \"Kind\",\n        \"type\": \"NRM\"\n    },\n    {\n        \"text\": \"Kind\",\n        \"type\": \"NRM\"\n    },\n    {\n        \"text\": \"Kind\",\n        \"type\": \"NRM\"\n    },\n    {\n        \"text\": \"Kind\",\n        \"type\": \"NRM\"\n    },\n   "
+    },
+    {
+      "sentence": "Dieser Ansicht kann jedenfalls im vorliegenden Fall nicht zugestimmt werden ( Fezer , Markenrecht , 4. Aufl. , § 14 MarkenG Rn. 860 ; Ebert-Weidenfeller in : Achenbach / Ransiek / Rönnau , Handbuch des Wirtschaftsstrafrechts , 4. Aufl. , Kapitel Markenstrafrecht Rn. 69 ; vgl. auch BGH , Urteil vom 10. Juni 1998 - 5 StR 72/98 , StV 1998 , 663 ) .",
+      "raw": "[{\"text\": \"Markenrecht\", \"type\": \"RS\"}, {\"text\": \"MarkenG\", \"type\": \"RS\"}, {\"text\": \"MarkenG Rn. 860\", \"type\": \"RS\"}, {\"text\": \"Achenbach / Ransiek / Rönnau\", \"type\": \"RS\"}, {\"text\": \"Handbuch des Wirtschaftsstrafrechts\", \"type\": \"RS\"}, {\"text\": \"Wirtschaftsstrafrechts\", \"type\": \"RS\"}, {\"text\": \"StV"
+    },
+    {
+      "sentence": "[ Kläger ] aus der bankmäßigen Geschäftsverbindung ( insbesondere aus laufender Rechnung , Krediten und Darlehen jeder Art einschließlich etwaiger gesetzlicher Ansprüche und Wechseln ) \" dienten .",
+      "raw": "[ KLÄGER ] aus der bankmäßigen Geschäftsverbindung ( insbesondere aus laufender Rechnung , Krediten und Darlehen jeder Art einschließlich etwaiger gesetzlicher Ansprüche und Wechseln ) \" dienten . []"
+    }
+  ]
+}

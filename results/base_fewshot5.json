@@ -1,0 +1,75 @@
+{
+  "model": "mlx-community/Qwen2.5-3B-Instruct-4bit",
+  "adapter": null,
+  "fewshot": 5,
+  "n_sentences": 500,
+  "json_valid_rate": 0.992,
+  "micro": {
+    "precision": 0.42084168336673344,
+    "recall": 0.336,
+    "f1": 0.3736654804270463
+  },
+  "per_type": {
+    "PER": {
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "support": 45
+    },
+    "ORG": {
+      "precision": 0.3333333333333333,
+      "recall": 0.14736842105263157,
+      "f1": 0.20437956204379562,
+      "support": 95
+    },
+    "LOC": {
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "support": 40
+    },
+    "NRM": {
+      "precision": 0.5813008130081301,
+      "recall": 0.7079207920792079,
+      "f1": 0.6383928571428572,
+      "support": 202
+    },
+    "REG": {
+      "precision": 0.3333333333333333,
+      "recall": 0.024390243902439025,
+      "f1": 0.04545454545454545,
+      "support": 41
+    },
+    "RS": {
+      "precision": 0.2596685082872928,
+      "recall": 0.2865853658536585,
+      "f1": 0.2724637681159421,
+      "support": 164
+    },
+    "LIT": {
+      "precision": 0.21739130434782608,
+      "recall": 0.13157894736842105,
+      "f1": 0.16393442622950818,
+      "support": 38
+    }
+  },
+  "mean_latency_s": 8.494564447010003,
+  "invalid_examples": [
+    {
+      "sentence": "Daher geht die Vorinstanz davon aus , dass sich die Zuständigkeit des Oberverwaltungsgerichts für Normenkontrollen gemäß § 47 Abs. 1 Nr. 2 VwGO i. V. m. Art. 13 des Staatsvertrages nach § 4 des Brandenburgischen Verwaltungsgerichtsgesetzes zwar auf untergesetzliche brandenburgische Normen , mangels einer vergleichbaren Berliner Regelung jedoch nicht auf entsprechende Normen des Berliner Landesrechts erstreckt .",
+      "raw": "[{\"text\": \"§ 47 Abs. 1 Nr. 2 VwGO\", \"type\": \"NRM\"}, {\"text\": \"Art. 13 des Staatsvertrages nach § 4 des Brandenburgischen Verwaltungsgerichtsgesetzes\", \"type\": \"NRM\"}, {\"text\": \"§ 4 des Brandenburgischen Verwaltungsgerichtsgesetzes\", \"type\": \"NRM\"}, {\"text\": \"Art. 13 des Staatsvertrages\", \"type\": \"NR"
+    },
+    {
+      "sentence": "Auf die Revision des Klägers werden die Urteile des Bayerischen Landessozialgerichts vom 26. Januar 2016 und des Sozialgerichts München vom 24. Oktober 2013 sowie der Bescheid der Beklagten vom 12. November 2009 in der Gestalt des Widerspruchsbescheids vom 27. April 2010 aufgehoben und die Beklagte verpflichtet , bei der Beigeladenen zu 1. über die bereits gezahlten Gesamtsozialversicherungsbeiträge hinaus weitere Beiträge zur gesetzlichen Rentenversicherung für den Monat März 2009 aus 3030 Euro Arbeitsentgelt und für den Monat April 2009 aus 6060 Euro Arbeitsentgelt jeweils bis zur monatlichen Beitragsbemessungsgrenze einzuziehen .",
+      "raw": "[{\"text\": \"Bayerischen Landessozialgerichts vom 26. Januar 2016\", \"type\": \"ORG\"}, {\"text\": \"Sozialgerichts München vom 24. Oktober 2013\", \"type\": \"ORG\"}, {\"text\": \"Beklagten vom 12. November 2009\", \"type\": \"ORG\"}, {\"text\": \"Beklagten\", \"type\": \"ORG\"}, {\"text\": \"Beklagten\", \"type\": \"ORG\"}, {\"text\": \""
+    },
+    {
+      "sentence": "Als Beendigung der Rechtsfähigkeit des Betriebs ist der 3. 7. 1990 , als Rechtsnachfolger sind die Electronicon-GmbH G. und die B. Kondensatoren-GmbH eingetragen .",
+      "raw": "[{\"text\": \"3. 7. 1990\", \"type\": \"DATE\"}, {\"text\": \"Electronicon-GmbH\", \"type\": \"ORG\"}, {\"text\": \"B. Kondensatoren-GmbH\", \"type\": \"ORG\"}]"
+    },
+    {
+      "sentence": "Doch auch wenn die Taten 21 bis 23 und 33 der Urteilsgründe sich damit im Hinblick auf das Marihuana als selbständige Umsatzgeschäfte darstellen , fallen die darauf bezogenen Handlungen des Angeklagten mit denjenigen zusammen , die dem Absatz des zugleich in diesen Fällen gehandelten Amphetamins dienten , hinsichtlich dessen aufgrund des einheitlichen Erwerbs im Fall 27 der Urteilsgründe von einer Bewertungseinheit und damit von einer Tat im Rechtssinne auszugehen ist : Im Fall 21 der Urteilsgründe nahm der Angeklagte die Bestellung beider Betäubungsmittel einheitlich entgegen , in den Fällen 22 und 23 der Urteilsgründe lieferte er sie auch gleichzeitig an die Angeklagte A. A. .",
+      "raw": "[{\"text\": \"Absatz\", \"type\": \"NRM\"}, {\"text\": \"Urteilsgründe\", \"type\": \"NRM\"}, {\"text\": \"Urteil\", \"type\": \"RS\"}, {\"text\": \"Urteilsgründe\", \"type\": \"NRM\"}, {\"text\": \"Urteilsgründe\", \"type\": \"NRM\"}, {\"text\": \"Urteilsgründe\", \"type\": \"NRM\"}, {\"text\": \"Urteilsgründe\", \"type\": \"NRM\"}, {\"text\": \"Urteilsgrü"
+    }
+  ]
+}

@@ -1,0 +1,79 @@
+{
+  "model": "mlx-community/Qwen2.5-3B-Instruct-4bit",
+  "adapter": "adapters (step 250 checkpoint)",
+  "fewshot": 0,
+  "n_sentences": 500,
+  "json_valid_rate": 0.978,
+  "micro": {
+    "precision": 0.6865203761755486,
+    "recall": 0.7008,
+    "f1": 0.6935866983372921
+  },
+  "per_type": {
+    "PER": {
+      "precision": 0.7906976744186046,
+      "recall": 0.7555555555555555,
+      "f1": 0.7727272727272727,
+      "support": 45
+    },
+    "ORG": {
+      "precision": 0.4523809523809524,
+      "recall": 0.6,
+      "f1": 0.5158371040723981,
+      "support": 95
+    },
+    "LOC": {
+      "precision": 0.5151515151515151,
+      "recall": 0.425,
+      "f1": 0.4657534246575342,
+      "support": 40
+    },
+    "NRM": {
+      "precision": 0.8585365853658536,
+      "recall": 0.8712871287128713,
+      "f1": 0.8648648648648649,
+      "support": 202
+    },
+    "REG": {
+      "precision": 0.4838709677419355,
+      "recall": 0.36585365853658536,
+      "f1": 0.4166666666666667,
+      "support": 41
+    },
+    "RS": {
+      "precision": 0.6851851851851852,
+      "recall": 0.676829268292683,
+      "f1": 0.6809815950920246,
+      "support": 164
+    },
+    "LIT": {
+      "precision": 0.7368421052631579,
+      "recall": 0.7368421052631579,
+      "f1": 0.7368421052631579,
+      "support": 38
+    }
+  },
+  "mean_latency_s": 2.957520022836026,
+  "invalid_examples": [
+    {
+      "sentence": "Das Bundesverwaltungsgericht hatte vor dem Jahr 1998 die langjährige und weit verbreitete Praxis des Bundes beanstandet , Beamten auf der Grundlage von § 17 BBesG Aufwandsentschädigungen zu gewähren , durch die die physischen und psychischen Belastungen und Erschwernisse ihrer Dienstleistung abgegolten werden sollten ( BVerwG , Urteile vom 8. Juli 1994 - 2 C 3.93 - BVerwGE 96 , 224 < 225 f. > und vom 2. März 1995 - 2 C 17.94 - Buchholz 240 § 17 BBesG Nr. 7 S. 9 ) .",
+      "raw": "[{\"text\": \"§ 17 BBesG\", \"type\": \"NRM\"}, {\"text\": \"Bundesverwaltungsgericht\", \"type\": \"ORG\"}, {\"text\": \"Bund\", \"type\": \"ORG\"}, {\"text\": \"§ 17 BBesG\", \"type\": \"NRM\"}, {\"text\": \"Bundes\", \"type\": \"ORG\"}, {\"text\": \"Bundes\", \"type\": \"ORG\"}, {\"text\": \"Bundes\", \"type\": \"ORG\"}, {\"text\": \"§ 17 BBesG\", \"type\":"
+    },
+    {
+      "sentence": "Allerdings ist wegen der Nähe zur Gehörsrüge besonders darzulegen , dass der betroffene Beteiligte mit den üblichen Mitteln - insbesondere schriftlich durch seinen Prozessbevollmächtigten - alles unternommen hat , um seine Darstellung des Sachverhalts dem Gericht nahezubringen , und warum diese Möglichkeiten des Vortrags im konkreten Fall zur Sachaufklärung nicht ausreichen ( vgl BSG SozR 4 - 1500 § 160 Nr 18 RdNr 6 ; BSG vom 14. 10. 2008 - B 13 R 407/08 B - juris RdNr 17 f ) .",
+      "raw": "[{\"text\": \"B Gehörsrüge\", \"type\": \"LOC\"}, {\"text\": \"B Gehörsrüge\", \"type\": \"LOC\"}, {\"text\": \"B Gehörsrüge\", \"type\": \"LOC\"}, {\"text\": \"B Gehörsrüge\", \"type\": \"LOC\"}, {\"text\": \"B Gehörsrüge\", \"type\": \"LOC\"}, {\"text\": \"B Gehörsrüge\", \"type\": \"LOC\"}, {\"text\": \"B Gehörsrüge\", \"type\": \"LOC\"}, {\"text\": \"B "
+    },
+    {
+      "sentence": "Einer Beurteilung der weiteren abhängigen Patentansprüche bedarf es in der Folge nicht , da mit dem nicht gewährbaren Patentanspruch 1 dem Antrag als Ganzes nicht stattgegeben werden kann ( vgl. BGH GRUR 1997 , 120ff. – elektrisches Speicherheizgerät ) .",
+      "raw": "[{\"text\": \"BGH GRUR 1997 , 120ff.\", \"type\": \"RS\"}, {\"text\": \"Antrag\", \"type\": \"ORG\"}, {\"text\": \"Antrag\", \"type\": \"ORG\"}, {\"text\": \"Antrag\", \"type\": \"ORG\"}, {\"text\": \"Antrag\", \"type\": \"ORG\"}, {\"text\": \"Antrag\", \"type\": \"ORG\"}, {\"text\": \"Antrag\", \"type\": \"ORG\"}, {\"text\": \"Antrag\", \"type\": \"ORG\"}, {\"te"
+    },
+    {
+      "sentence": "Sollte die Erinnerung an die Rückgabe des Empfangsbekenntnisses als erneute Terminmitteilung zu werten sein , würde das einen Hinweis auf den Termin voraussetzen , der indes fehlt ; angegeben ist nur das Datum der Terminmitteilung selbst ( \" vom 17. 10. 2016 \" ) .",
+      "raw": "[{\"text\": \"17. 10. 2016\", \"type\": \"DATE\"}]"
+    },
+    {
+      "sentence": "Deshalb hat die Berechnung der Energiebeihilfe nach § 2 Abs. 1 BetrAVG in der bei Ausscheiden des Klägers aus dem Arbeitsverhältnis mit Ablauf des 31. Oktober 1997 geltenden Fassung ( im Folgenden BetrAVG aF ) bezogen auf die Vollendung des 65. Lebensjahres zu erfolgen .",
+      "raw": "[{\"text\": \"§ 2 Abs. 1 BetrAVG\", \"type\": \"NRM\"}, {\"text\": \"Ablauf des 31. Oktober 1997\", \"type\": \"DATE\"}, {\"text\": \"Vollendung des 65. Lebensjahres\", \"type\": \"DATE\"}]"
+    }
+  ]
+}
