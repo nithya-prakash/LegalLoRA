@@ -6,9 +6,28 @@ LoRA fine-tuning of a 3B open model to extract German legal named entities as st
 
 ## Demo
 
+### Dashboard
+
+![Dashboard: pick a held-out sentence, run the tuned model, compare with the expert labels, then browse the evaluation results](docs/dashboard.gif)
+
+A Streamlit dashboard ([MP4](docs/dashboard.mp4)) with two tabs:
+
+- **Try it:** pick a held-out test sentence (or type your own), run the tuned model live, and see its entities highlighted next to the expert labels, with an exact-match count.
+- **Results:** F1 for zero-shot, 5-shot and the LoRA model, plus F1 per entity type.
+
+The clip is a sequence of screenshots taken from a live session, not a continuous recording. It deliberately includes a failure: the second example (a labour-court sentence) scores 0/2, because the model labels "Zwickau" as a location instead of the court as an organisation and adds extra entities. The first example (two street names) is fully correct. Run it yourself:
+
+```bash
+.venv/bin/streamlit run app/dashboard.py
+```
+
+It needs the trained adapter in `adapters/` and the data from `scripts/prepare_data.py`.
+
+### Terminal
+
 ![Terminal demo: the tuned model extracting entities from four held-out test sentences](docs/demo.gif)
 
-A real terminal recording of `scripts/demo.py` running the tuned adapter on held-out test sentences ([MP4](docs/demo.mp4), [asciinema cast](docs/demo.cast)). The four sentences are picked by a fixed, model-independent rule (the longest test sentences of at most 140 characters with two or more expert entities), not by whether the model got them right. In sentence 2 the model adds one entity (`PKH`) that the expert labels do not have. Reproduce it with `python scripts/demo.py` after training or downloading an adapter.
+A real terminal recording of `scripts/demo.py` ([MP4](docs/demo.mp4), [asciinema cast](docs/demo.cast)). The four sentences are picked by a fixed, model-independent rule (the longest test sentences of at most 140 characters with two or more expert entities), not by whether the model got them right. In sentence 2 the model adds one entity (`PKH`) that the expert labels do not have.
 
 ## Task
 
