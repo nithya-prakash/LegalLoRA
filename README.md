@@ -4,6 +4,12 @@ LoRA fine-tuning of a 3B open model to extract German legal named entities as st
 
 > Research/portfolio project. Not legal advice, not a production system.
 
+## Demo
+
+![Terminal demo: the tuned model extracting entities from four held-out test sentences](docs/demo.gif)
+
+A real terminal recording of `scripts/demo.py` running the tuned adapter on held-out test sentences ([MP4](docs/demo.mp4), [asciinema cast](docs/demo.cast)). The four sentences are picked by a fixed, model-independent rule (the longest test sentences of at most 140 characters with two or more expert entities), not by whether the model got them right. In sentence 2 the model adds one entity (`PKH`) that the expert labels do not have. Reproduce it with `python scripts/demo.py` after training or downloading an adapter.
+
 ## Task
 
 Input: one German sentence from a court decision.

@@ -1,0 +1,11 @@
+{"version":3,"term":{"cols":110,"rows":34},"timestamp":1793544813,"idle_time_limit":2.0,"command":".venv/bin/python scripts/demo.py --n 4 2>/dev/null","env":{"SHELL":"/bin/zsh"}}
+[2.253, "o", "Loading Qwen2.5-3B + LoRA adapter ...\r\n"]
+[4.456, "o", "\r\n\u001b[1m#1  Um 21:37 Uhr befuhr er die Hans-Böckler-Straße und anschließend deren Verlängerung , die Nordstraße , in stadtauswärtiger Richtung .\u001b[0m\r\n  model : \u001b[32mHans-Böckler-Straße [LOC]\u001b[0m  \u001b[32mNordstraße [LOC]\u001b[0m\r\n  expert: \u001b[32mHans-Böckler-Straße [LOC]\u001b[0m  \u001b[32mNordstraße [LOC]\u001b[0m\r\n"]
+[0.000, "o", "  -> 2/2 expert entities matched exactly\r\n"]
+[4.023, "o", "\r\n\u001b[1m#2  Damit entfällt zugleich die Beiordnung seiner Prozessbevollmächtigten im Rahmen der PKH ( § 73a Abs 1 S 1 SGG iVm § 121 Abs 1 ZPO ) .\u001b[0m\r\n  model : \u001b[33m§ 73a Abs 1 S 1 SGG [NRM]\u001b[0m  \u001b[33mPKH [NRM]\u001b[0m  \u001b[33m§ 121 Abs 1 ZPO [NRM]\u001b[0m\r\n  expert: \u001b[33m§ 73a Abs 1 S 1 SGG [NRM]\u001b[0m  \u001b[33m§ 121 Abs 1 ZPO [NRM]\u001b[0m\r\n"]
+[0.000, "o", "  -> 2/2 expert entities matched exactly\r\n"]
+[3.061, "o", "\r\n\u001b[1m#3  3. Der 8. Senat des Bundesarbeitsgerichts hat das Revisionsverfahren ausgesetzt und dem Bundesverfassungsgericht die Frage vorgelegt ,\u001b[0m\r\n  model : \u001b[36m8. Senat des Bundesarbeitsgerichts [ORG]\u001b[0m  \u001b[36mBundesverfassungsgericht [ORG]\u001b[0m\r\n  expert: \u001b[36m8. Senat des Bundesarbeitsgerichts [ORG]\u001b[0m  \u001b[36mBundesverfassungsgericht [ORG]\u001b[0m\r\n"]
+[0.001, "o", "  -> 2/2 expert entities matched exactly\r\n"]
+[2.148, "o", "\r\n\u001b[1m#4  Gegen 14.45 Uhr rief dieser den Angeklagten an und zitierte ihn zu seinem Garten in M. bei O. , wo der Angeklagte um 15.35 Uhr eintraf .\u001b[0m\r\n  model : \u001b[32mM. [LOC]\u001b[0m  \u001b[32mO. [LOC]\u001b[0m\r\n  expert: \u001b[32mM. [LOC]\u001b[0m  \u001b[32mO. [LOC]\u001b[0m\r\n"]
+[0.000, "o", "  -> 2/2 expert entities matched exactly\r\n"]
+[0.199, "x", "0"]
