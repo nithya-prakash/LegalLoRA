@@ -3,3 +3,4 @@ adapters/
 __pycache__/
 *.log
 data/*.jsonl
+adapters_resume/

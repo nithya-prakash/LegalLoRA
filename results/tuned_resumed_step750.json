@@ -1,0 +1,79 @@
+{
+  "model": "mlx-community/Qwen2.5-3B-Instruct-4bit",
+  "adapter": "../adapters_resume",
+  "fewshot": 0,
+  "n_sentences": 500,
+  "json_valid_rate": 0.968,
+  "micro": {
+    "precision": 0.7334437086092715,
+    "recall": 0.7088,
+    "f1": 0.7209113100081367
+  },
+  "per_type": {
+    "PER": {
+      "precision": 0.782608695652174,
+      "recall": 0.8,
+      "f1": 0.7912087912087912,
+      "support": 45
+    },
+    "ORG": {
+      "precision": 0.7160493827160493,
+      "recall": 0.6105263157894737,
+      "f1": 0.6590909090909091,
+      "support": 95
+    },
+    "LOC": {
+      "precision": 0.6486486486486487,
+      "recall": 0.6,
+      "f1": 0.6233766233766234,
+      "support": 40
+    },
+    "NRM": {
+      "precision": 0.7427385892116183,
+      "recall": 0.8861386138613861,
+      "f1": 0.8081264108352144,
+      "support": 202
+    },
+    "REG": {
+      "precision": 0.7272727272727273,
+      "recall": 0.3902439024390244,
+      "f1": 0.5079365079365079,
+      "support": 41
+    },
+    "RS": {
+      "precision": 0.7883211678832117,
+      "recall": 0.6585365853658537,
+      "f1": 0.717607973421927,
+      "support": 164
+    },
+    "LIT": {
+      "precision": 0.55,
+      "recall": 0.5789473684210527,
+      "f1": 0.5641025641025641,
+      "support": 38
+    }
+  },
+  "mean_latency_s": 3.096069542422054,
+  "invalid_examples": [
+    {
+      "sentence": "Bezüglich der Vergütungsansprüche für die Zeit vom 1. Juni 2010 bis zum 31. Mai 2012 hat das Landesarbeitsgericht zutreffend entschieden , dass die Klägerin keinen Anspruch auf Vergütung nach Entgeltgruppe 14 Stufe 4 DVO.EKD hat .",
+      "raw": "[{\"text\": \"Entgeltgruppe 14 Stufe 4 DVO.EKD\", \"type\": \"DVO\"}]"
+    },
+    {
+      "sentence": "§ 30a Abs. 2 Nr. 1 BtMG in der Variante des Bestimmens eines Minderjährigen zum Fördern einer der dort genannten Handlungen erfordert weiter , dass der angestiftete Minderjährige neben den objektiven auch die subjektiven Voraussetzungen einer Beihilfehandlung im Sinne des § 27 StGB verwirklicht ( BGH , Beschluss vom 7. August 2014 - 3 StR 17/14 , NStZ 2015 , 347 f. mwN ; zum Begriff des Förderns vgl. auch MüKoStGB / Öğlakcioğlu , aaO Rn. 57 ; Körner / Patzak / Volkmer , BtMG , 8. Aufl. , § 30a Rn. 41 ) .",
+      "raw": "[{\"text\": \"§ 30a Abs. 2 Nr. 1 BtMG\", \"type\": \"NRM\"}, {\"text\": \"§ 27 StGB\", \"type\": \"NRM\"}, {\"text\": \"BGH , Beschluss vom 7. August 2014 - 3 StR 17/14 , NStZ 2015 , 347 f. mwN\", \"type\": \"RS\"}, {\"text\": \"Minderjährige\", \"type\": \"PER\"}, {\"text\": \"Minderjährigen\", \"type\": \"PER\"}, {\"text\": \"Minderjährige"
+    },
+    {
+      "sentence": "Damit könnte nicht nur § 2 Abs. 5a BetrAVG aF , sondern gleichermaßen auch § 2 Abs. 1 BetrAVG aF - der auch nach dem 1. Januar 2018 unverändert weiter gilt - angesprochen sein .",
+      "raw": "[{\"text\": \"§ 2 Abs. 5a BetrAVG aF\", \"type\": \"NRM\"}, {\"text\": \"§ 2 Abs. 1 BetrAVG aF\", \"type\": \"NRM\"}, {\"text\": \"§ 2 Abs. 5a BetrAVG aF\", \"type\": \"NRM\"}, {\"text\": \"§ 2 Abs. 1 BetrAVG aF\", \"type\": \"NRM\"}, {\"text\": \"§ 2 Abs. 5a BetrAVG aF\", \"type\": \"NRM\"}, {\"text\": \"§ 2 Abs. 1 BetrAVG aF\", \"type\": \"NRM"
+    },
+    {
+      "sentence": "den angefochtenen Beschluss der Markenstelle für Klasse 44 des Deutschen Patent- und Markenamts vom 30. Januar 2015 aufzuheben und die Marke 30 2010 003 649 zu löschen .",
+      "raw": "[{\"text\": \"Markenstelle für Klasse 44 des Deutschen Patent- und Markenamts\", \"type\": \"ORG\"}, {\"text\": \"30. Januar 2015\", \"type\": \"DATE\"}, {\"text\": \"30 2010 003 649\", \"type\": \"ORG\"}]"
+    },
+    {
+      "sentence": "a ) Ein immaterielles Wirtschaftsgut ist abnutzbar , wenn seine Nutzung unter rechtlichen oder unter wirtschaftlichen Gesichtspunkten zeitlich begrenzt ist ( z.B. BFH-Urteile vom 21. Februar 2017 VIII R 56/14 , BFHE 257 , 112 , BStBl II 2017 , 694 , wirtschaftlicher Vorteil aus einer Vertragsarztzulassung ; in BFHE 252 , 267 , BStBl II 2017 , 45 , Zahlungsansprüche nach der GAP-Reform 2003 ; vom 16. Oktober 2008 IV R 1/06 , BFHE 226 , 37 , BStBl II 2010 , 28 , betriebsgebundene Zuckerrübenlieferrechte , m. w. N. ; vgl. auch BFH-Urteile vom 19. Oktober 2006 III R 6/05 , BFHE 215 , 222 , BStBl II 2007 , 301 , Domain-Name ; vom 28. Mai 1998 IV R 48/97 , BFHE 186 , 268 , BStBl II 1998 , 775 , Belieferungsrecht ; vom 29. April 2009 IX R 33/08 , BFHE 225 , 361 , BStBl II 2010 , 958 , Milchlieferrecht , und vom 17. März 2010 IV R 3/08 , BFHE 229 , 159 , BStBl II 2014 , 512 , Zuckerrübenlieferrecht ) .",
+      "raw": "[{\"text\": \"BFH-Urteile vom 21. Februar 2017 VIII R 56/14 , BFHE 257 , 112 , BStBl II 2017 , 694\", \"type\": \"RS\"}, {\"text\": \"BFHE 252 , 267 , BStBl II 2017 , 45 , Zahlingsansprüche nach der GAP-Reform 2003\", \"type\": \"NRM\"}, {\"text\": \"BFH-Urteile vom 16. Oktober 2008 IV R 1/06 , BFHE 252 , 267 , BStBl "
+    }
+  ]
+}

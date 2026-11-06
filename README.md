@@ -54,21 +54,24 @@ Held-out test set: 500 sentences (625 gold entities). Base model: `mlx-community
 |---|---|---|---|---|---|
 | Zero-shot | 0.050 | 0.146 | 0.030 | 98.8% | 1.3 s |
 | 5-shot prompt | 0.374 | 0.421 | 0.336 | 99.2% | 8.5 s |
-| **LoRA, step 250 of 750** | **0.694** | 0.687 | 0.701 | 97.8% | 3.0 s |
+| LoRA, step 250 of 750 | 0.694 | 0.687 | 0.701 | 97.8% | 3.0 s |
+| **LoRA, resumed to step 750** | **0.721** | 0.733 | 0.709 | 96.8% | 3.1 s |
 
 Per-type F1 (support in the test set):
 
-| Type | Zero-shot | 5-shot | LoRA | n |
-|---|---|---|---|---|
-| NRM | 0.00 | 0.64 | 0.86 | 202 |
-| PER | 0.00 | 0.00 | 0.77 | 45 |
-| LIT | 0.00 | 0.16 | 0.74 | 38 |
-| RS | 0.02 | 0.27 | 0.68 | 164 |
-| ORG | 0.19 | 0.20 | 0.52 | 95 |
-| LOC | 0.09 | 0.00 | 0.47 | 40 |
-| REG | 0.00 | 0.05 | 0.42 | 41 |
+| Type | Zero-shot | 5-shot | LoRA step 250 | LoRA resumed | n |
+|---|---|---|---|---|---|
+| NRM | 0.00 | 0.64 | 0.86 | 0.81 | 202 |
+| PER | 0.00 | 0.00 | 0.77 | 0.79 | 45 |
+| LIT | 0.00 | 0.16 | 0.74 | 0.56 | 38 |
+| RS | 0.02 | 0.27 | 0.68 | 0.72 | 164 |
+| ORG | 0.19 | 0.20 | 0.52 | 0.66 | 95 |
+| LOC | 0.09 | 0.00 | 0.47 | 0.62 | 40 |
+| REG | 0.00 | 0.05 | 0.42 | 0.51 | 41 |
 
-Raw numbers: `results/*.json`. Latency is mean wall-clock per sentence on the M4 and includes the long prompt for the 5-shot run.
+The resumed adapter gains on ORG, LOC and REG and loses on LIT and NRM. With 38 LIT entities in the test set, the LIT drop could be partly noise.
+
+Raw numbers: `results/*.json` (`tuned_step250*.json` and `tuned_resumed_step750*.json`; the `_dedup` files exclude test sentences that also appear in train). Latency is mean wall-clock per sentence on the M4 and includes the long prompt for the 5-shot run.
 
 ## Method
 
@@ -91,13 +94,22 @@ cd scripts
 
 Training uses about 10-15 s per step on an M4 with 16 GB, so the planned 750 steps take roughly 2.5 hours.
 
+The resumed adapter was produced by running the remaining 500 steps from the step-250 checkpoint:
+
+```bash
+.venv/bin/python -m mlx_lm lora --config configs/lora_qwen3b.yaml --adapter-path adapters_resume \
+  --resume-adapter-file adapters/0000250_adapters.safetensors --iters 500 --seed 14
+```
+
+It took about 2 hours 10 minutes. `evaluate.py --out` is relative to the repo root (`--out results/x.json`).
+
 ## Limitations
 
-- **Partial training.** The reported adapter is the step-250 checkpoint of a planned 750-step (one-epoch) run. Training was stopped early to save time, so the numbers are probably not the ceiling. The training log is not committed.
-- **Possible train/test leakage.** The dataset is split by sentence and the Hugging Face version has no document IDs, so sentences from the same court decision may appear on both sides. Scores may be optimistic. Checked: 49 of the 500 test sentences also appear verbatim in the training set; re-scoring on the remaining 451 (`evaluate.py --dedup`, `results/tuned_step250_dedup.json`) gives the same F1 (0.693), so exact duplicates are not driving the result. Near-duplicates from the same decisions are not ruled out.
-- **Single run, single seed, 500 test sentences.** Differences of a few points are not meaningful.
+- **Resumed, not continuous, training.** The first run was stopped at step 250 of a planned 750. The remaining 500 steps were run later as a second run that loads the step-250 adapter, with a different data-shuffle seed (14) and a freshly initialised optimizer (Adam state was not saved). So some training sentences were seen twice and some not at all; this is not a clean single epoch. Final validation loss was 0.044, but it was 0.031 at step 375 of the second run, so the last checkpoint is not necessarily the best one. The training logs are not committed.
+- **Possible train/test leakage.** The dataset is split by sentence and the Hugging Face version has no document IDs, so sentences from the same court decision may appear on both sides. Scores may be optimistic. Checked: 49 of the 500 test sentences also appear verbatim in the training set; re-scoring on the remaining 451 (`evaluate.py --dedup`, `results/tuned_step250_dedup.json`) gives the same F1 (0.693) for step 250 and 0.711 vs 0.721 for the resumed adapter (`results/tuned_resumed_step750_dedup.json`), so exact duplicates add at most about a point. Near-duplicates from the same decisions are not ruled out.
+- **Single run, single seed, 500 test sentences.** The resumed adapter scores 2.7 F1 points higher (0.721 vs 0.694; 0.711 vs 0.693 with duplicates removed), but differences of a few points are not meaningful, and valid-JSON rate fell by a point (97.8% to 96.8%).
 - **Strict scoring.** Exact text and type match; partially correct spans count as errors.
-- **Output loops.** Some invalid outputs (2.2%) are repetition loops that hit the 400-token cap.
+- **Invalid outputs.** 2.2% of step-250 outputs and 3.2% of resumed-adapter outputs were not valid JSON. For step 250 these were repetition loops that hit the 400-token cap; I did not break down the resumed ones.
 - **Weak classes.** ORG, LOC and REG are the least frequent in training and score lowest.
 - **Domain.** Court decisions only. Not tested on contracts or other legal text.
 - Only one base model and one prompt were tried; no hyperparameter search was run.
